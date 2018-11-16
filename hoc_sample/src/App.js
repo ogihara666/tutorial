@@ -11,7 +11,7 @@ import Instruction from './Instruction';
 import MyPage from './MyPage';
 import { combineReducers } from 'redux';
 import {connect} from 'react-redux';
-import {login,logout} from './actions';
+import {login,logout,samplePromise} from './actions';
 import requireAuth from './requireAuth';
 
 
@@ -33,6 +33,7 @@ class App extends Component {
       <ul>
         <li><Link to="/">Top</Link></li>
         <li><Link to="/mypage">MyPage</Link></li>
+        <li><button onClick={this.props.samplePromise}>Promise</button></li>
         <li>{this.renderButton()}</li>
       </ul>
     )
@@ -59,6 +60,7 @@ const mapStateToProps =(state)=> {
 
 export default connect(mapStateToProps,{
   login,
-  logout
+  logout,
+  samplePromise
 })(App);
 

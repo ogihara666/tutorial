@@ -9,6 +9,7 @@ import reducers from './reducers';
 import {compose} from 'redux';
 import thunk from 'redux-thunk';
 import sample from './middlewares/sample';
+import sample_2 from './middlewares/sample_2';
 import { combineReducers } from 'redux';
 
 
@@ -16,7 +17,7 @@ import { combineReducers } from 'redux';
 const store = createStore(
     combineReducers({auth:reducers}),
     {},
-    compose(applyMiddleware(sample,thunk),window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()),
+    compose(applyMiddleware(sample,sample_2,thunk),window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()),
     
   )
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
